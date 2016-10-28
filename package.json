@@ -1,0 +1,45 @@
+{
+  "name": "tvdml-app-boilerplate",
+  "version": "1.0.0",
+  "description": "Basic build configuration to begin building Apple TV apps using TVDML library",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/a-ignatov-parc/tvdml-app-boilerplate.git"
+  },
+  "keywords": [
+    "tvdml",
+    "jsx",
+    "es6",
+    "tvml",
+    "tv",
+    "tvos",
+    "apple"
+  ],
+  "author": "Anton Ignatov <abietis@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/a-ignatov-parc/tvdml-app-boilerplate/issues"
+  },
+  "homepage": "https://github.com/a-ignatov-parc/tvdml-app-boilerplate#readme",
+  "dependencies": {
+    "tvdml": "a-ignatov-parc/tvdml#documentation"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "babelify": "^7.3.0",
+    "browserify": "^13.1.1",
+    "browserify-incremental": "^3.1.1",
+    "gulp": "^3.9.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-sourcemaps": "^2.2.0",
+    "gulp-uglify": "^2.0.0",
+    "gulp-util": "^3.0.7",
+    "gulp-watch": "^4.3.10",
+    "pretty-bytes": "^4.0.2"
+  }
+}
