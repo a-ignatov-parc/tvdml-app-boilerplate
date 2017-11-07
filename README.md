@@ -4,56 +4,45 @@ Basic build configuration to begin building Apple TV apps using [TVDML](https://
 
 ## Building project
 
-To be able to build application you need to have node.js >= 4.0.0 and npm >= 2.
+To be able to build application you need `node.js` >= 6.0.0 and `yarn` >= 1.0.0.
 
-To install all dependencies use:
+> If you are using [nvm](https://github.com/creationix/nvm) there is an `.nvmrc`
+
+To start we need to install all dependencies with `yarn`:
 
 ```bash
-npm install
+yarn
 ```
 
-To simplify executing build tasks you can install gulp.js globaly:
+If you don't have globally installed `yarn` you can install all dependencies using local `yarn` installation:
 
 ```bash
-npm install -g gulp
+npm run install-deps
 ```
 
-Now you can build your application located in `/src` folder with default task using:
+> This command should be used to install deps in CI.
+
+Now you can build your application located in `/src` folder:
 
 ```bash
-gulp
+npm run build
 ```
 
-> default task is alias for `gulp build`
-
-To build optimized and minified version use `--production` argument:
+To build optimized and minified version use:
 
 ```bash
-gulp --production
+npm run dist
 ```
 
-To start watcher with auto-builds use:
+To start server with autorebuilds:
 
 ```bash
-gulp watch
-```
-
-To start web-server to serve your application use:
-
-```bash
-gulp serve
+npm run serve
 ```
 
 > Server will be started at [localhost:9001](http://localhost:9001/)
 
 ## Additional information
 
-- Results of build task will be stored in `/out` folder.
-
-- To check all available tasks use:
-
-  ```bash
-  gulp --tasks
-  ```
-
-- More information on how to use gulp.js can be found [here](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md).
+- Results of build task will be stored in `/dist` folder.
+- Old build configuration based on `gulp.js` can be found in [`gulp` branch](https://github.com/a-ignatov-parc/tvdml-app-boilerplate/tree/gulp).
