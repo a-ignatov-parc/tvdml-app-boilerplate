@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import { showMessageFactory } from '../helpers/show-message';
 
 import withCounter from '../redux/withCounter';
@@ -20,5 +22,13 @@ function Screen2(props) {
     </document>
   );
 }
+
+Screen2.propTypes = {
+  counter: PropTypes.number.isRequired,
+};
+
+Screen2.defaultProps = {
+  counter: 0,
+};
 
 export default withCounter(Screen2);

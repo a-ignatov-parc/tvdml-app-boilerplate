@@ -1,11 +1,13 @@
+import PropTypes from 'prop-types';
+
 import { link } from '../utils';
 import { showMessageFactory } from '../helpers/show-message';
 
 import withCounter from '../redux/withCounter';
 
 function Screen1(props) {
-  const name = props.name || 'Human';
-  const counter = props.counter || 0;
+  const name = props.name;
+  const counter = props.counter;
 
   return (
     <document>
@@ -33,5 +35,15 @@ function Screen1(props) {
     </document>
   );
 }
+
+Screen1.propTypes = {
+  name: PropTypes.string.isRequired,
+  counter: PropTypes.number.isRequired,
+};
+
+Screen1.defaultProps = {
+  name: 'Human',
+  counter: 0,
+};
 
 export default withCounter(Screen1);
