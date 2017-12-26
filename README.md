@@ -4,7 +4,7 @@ Basic build configuration to begin building Apple TV apps using [TVDML](https://
 
 ## Building project
 
-To be able to build application you need `node.js` >= 6.0.0 and `yarn` >= 1.0.0.
+To be able to build application you need `node.js` >= 8.9.0 and `yarn` >= 1.3.0.
 
 > If you are using [nvm](https://github.com/creationix/nvm) there is an `.nvmrc`
 
