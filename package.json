@@ -21,12 +21,12 @@
   },
   "keywords": [
     "tvdml",
-    "jsx",
-    "es6",
-    "tvml",
-    "tv",
+    "react",
+    "apple",
     "tvos",
-    "apple"
+    "tvjs",
+    "tvml",
+    "tv"
   ],
   "author": "Anton Ignatov <abietis@gmail.com>",
   "license": "MIT",
