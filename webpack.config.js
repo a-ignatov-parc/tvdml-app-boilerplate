@@ -48,10 +48,6 @@ const plugins = [
   new webpack.EnvironmentPlugin({
     NODE_ENV: DEVELOPMENT,
   }),
-
-  new webpack.ProvidePlugin({
-    pragma: resolveFromRoot('./src/pragma'),
-  }),
 ];
 
 if (isProd) {
