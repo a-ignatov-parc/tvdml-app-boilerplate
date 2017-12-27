@@ -1,6 +1,10 @@
+import PropTypes from 'prop-types';
+
+import withBaseUrl from '../redux/withBaseUrl';
+
 import tvshows from './Screen3/tvshows';
 
-export default function Screen3() {
+function Screen3({ baseUrl }) {
   return (
     <document>
       <stackTemplate>
@@ -26,8 +30,8 @@ export default function Screen3() {
                 tvshows: tvshows.map((cover, i) => {
                   const item = new DataItem('tvshow', i);
 
-                  item.url = cover.url;
                   item.title = cover.title;
+                  item.url = baseUrl + cover.url;
 
                   return item;
                 }),
@@ -39,3 +43,9 @@ export default function Screen3() {
     </document>
   );
 }
+
+Screen3.propTypes = {
+  baseUrl: PropTypes.string.isRequired,
+};
+
+export default withBaseUrl(Screen3);

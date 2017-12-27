@@ -1317,6 +1317,13 @@ fbjs@^0.8.16:
     setimmediate "^1.0.5"
     ua-parser-js "^0.7.9"
 
+file-loader@^1.1.6:
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/file-loader/-/file-loader-1.1.6.tgz#7b9a8f2c58f00a77fddf49e940f7ac978a3ea0e8"
+  dependencies:
+    loader-utils "^1.0.2"
+    schema-utils "^0.3.0"
+
 filename-regex@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/filename-regex/-/filename-regex-2.0.1.tgz#c1c4b9bee3e09725ddb106b75c1e301fe2f18b26"
@@ -3336,8 +3343,8 @@ tunnel-agent@^0.6.0:
     safe-buffer "^5.0.1"
 
 tvdml@^6.0.0-0:
-  version "6.0.0-1"
-  resolved "https://registry.yarnpkg.com/tvdml/-/tvdml-6.0.0-1.tgz#9bb9d2a2cfcfda8c8d105ac6b4e88c6031300e61"
+  version "6.0.0-2"
+  resolved "https://registry.yarnpkg.com/tvdml/-/tvdml-6.0.0-2.tgz#9da36e36280fb49ce0959e7b71de3c240cdd935f"
   dependencies:
     react-reconciler "^0.7.0"
 
