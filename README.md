@@ -28,7 +28,7 @@ npm run serve
 
 > Server will start at [localhost:9001](http://localhost:9001/)
 
-Next step is to open XCode project (`boilerplate.xcodeproj`) located in `xcode` folder and run project with "Play" button at the top left corner or hit <kbd>CMD</kbd>+<kbd>R</kbd>. This will open Apple TV simulator and you'll be able to play around with demo app.
+Next step is to open XCode project (`boilerplate.xcodeproj`) located in `xcode` folder and run project with "Play" button at the top left corner or hit <kbd>CMD</kbd> + <kbd>R</kbd>. This will open Apple TV simulator and you'll be able to play around with demo app.
 
 ## Additional information
 
