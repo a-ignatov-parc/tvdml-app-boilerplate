@@ -2,7 +2,7 @@
 
 Basic build configuration to begin building Apple TV apps using [TVDML](https://github.com/a-ignatov-parc/tvdml) library.
 
-## Building project
+## How to run demo app
 
 To be able to build application you need `node.js` >= 8.9.0 and `yarn` >= 1.3.0.
 
@@ -20,27 +20,15 @@ If you don't have globally installed `yarn` you can install all dependencies usi
 npm run install-deps
 ```
 
-> This command should be used to install deps in CI.
-
-Now you can build your application located in `/src` folder:
-
-```bash
-npm run build
-```
-
-To build optimized and minified version use:
-
-```bash
-npm run dist
-```
-
-To start server with autorebuilds:
+Now you need to start webserver to build and serve TVML app:
 
 ```bash
 npm run serve
 ```
 
 > Server will be started at [localhost:9001](http://localhost:9001/)
+
+Next step is to open XCode project (`boilerplate.xcodeproj`) located in `xcode` folder and run project with "Play" button at the top left corner or hit <kbd>CMD</kbd>+<kbd>R</kbd>
 
 ## Additional information
 
