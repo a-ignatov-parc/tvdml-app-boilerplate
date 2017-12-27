@@ -2,7 +2,7 @@
 
 Basic build configuration to begin building Apple TV apps using [TVDML](https://github.com/a-ignatov-parc/tvdml) library.
 
-## How to run demo app
+## Run demo app
 
 To be able to build application you need `node.js` >= 8.9.0 and `yarn` >= 1.3.0.
 
@@ -30,7 +30,22 @@ npm run serve
 
 Next step is to open XCode project (`boilerplate.xcodeproj`) located in `xcode` folder and run project with "Play" button at the top left corner or hit <kbd>CMD</kbd> + <kbd>R</kbd>. This will open Apple TV simulator and you'll be able to play around with demo app.
 
+## Build project
+
+In addition to serve application from MemoryFS you can build your application located in `/src` folder:
+
+```bash
+npm run build
+```
+
+> Results will be placed in `/dist` folder.
+
+To build optimized and minified version use:
+
+```bash
+npm run dist
+```
+
 ## Additional information
 
-- Results of build task will be stored in `/dist` folder.
-- Old build configuration based on `gulp.js` can be found in [`gulp` branch](https://github.com/a-ignatov-parc/tvdml-app-boilerplate/tree/gulp).
+Old build configuration based on `gulp.js` can be found in [`gulp` branch](https://github.com/a-ignatov-parc/tvdml-app-boilerplate/tree/gulp).
