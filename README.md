@@ -2,6 +2,12 @@
 
 Basic build configuration to begin building Apple TV apps using [TVDML](https://github.com/a-ignatov-parc/tvdml) library.
 
+## Demo app
+
+Here's a glimpse of what it looks like
+
+![Main Screen](screenshots/screenshot1.png)
+
 ## Run demo app
 
 To be able to build application you need `node.js` >= 8.9.0 and `yarn` >= 1.3.0.
