@@ -17,7 +17,7 @@ const isProd = env === PRODUCTION;
 const rules = [
   {
     test: /\.js$/,
-    exclude: /node_modules/,
+    exclude: /(node_modules|tvdml\/dist)/,
     use: {
       loader: 'babel-loader',
       options: {
