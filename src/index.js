@@ -1,71 +1,83 @@
+import React from 'react';
 import * as TVDML from 'tvdml';
+import fetch from 'cross-fetch';
 
-import store from './redux/store';
-import {
-  launchApp,
-  resumeApp,
-  suspendApp,
-} from './redux/ducks/app';
+const userAgent = `ATV: soap4atv v1.0.0-tvos12-demo`;
 
-import RuntimeWrapper from './components/RuntimeWrapper';
+function fetchSoap(url, token) {
+  return fetch(url, {
+    headers: {
+      'X-Api-Token': token,
+      'X-User-Agent': userAgent,
+      'User-Agent': userAgent,
+    },
+  });
+}
 
-import Screen1 from './screens/Screen1';
-import Screen2 from './screens/Screen2';
-import Screen3 from './screens/Screen3';
+class DemoPlayer extends React.PureComponent {
+  state = {
+    loading: false,
+  };
+
+  onClick = async () => {
+    this.setState({ loading: true });
+
+    const auth = await fetchSoap('https://api.soap4.me/v2/auth/check/');
+    const { token } = await auth.json();
+
+    const trailers = await fetchSoap('https://api.soap4.me/v2/trailers/36/', token);
+    const [{ files }] = await trailers.json();
+
+    const { tid } = files.find(({ quality }) => quality === '2');
+
+    const trailer = await fetchSoap(`https://api.soap4.me/v2/play/trailer/${tid}/`);
+    const { stream } = await trailer.json();
+
+    console.info(tid, stream);
+
+    try {
+      const player = new Player();
+      const playlist = new Playlist();
+      const media = new MediaItem('video');
+
+      Object.assign(media, {
+        id: tid,
+        url: stream,
+      });
+
+      playlist.push(media);
+      player.playlist = playlist;
+      player.play();
+    } catch(error) {
+      console.error(error);
+    }
+
+    this.setState({ loading: false });
+  };
+
+  render() {
+    const { loading } = this.state;
+
+    return (
+      <document>
+        <alertTemplate>
+          <title>Playback issue demo</title>
+          <description>Player closes without any reason while playing video</description>
+          <button onSelect={this.onClick} disabled={loading}>
+            {loading ? (
+              <text>Loading...</text>
+            ): (
+              <text>Play video</text>
+            )}
+          </button>
+        </alertTemplate>
+      </document>
+    );
+  }
+}
 
 TVDML
   .subscribe(TVDML.event.LAUNCH)
   .pipe(TVDML.render(() => (
-    <document>
-      <menuBarTemplate>
-        <menuBar>
-          <menuItem route='page1'>
-            <title>Page1</title>
-          </menuItem>
-          <menuItem route='page2' autoHighlight>
-            <title>Page2</title>
-          </menuItem>
-          <menuItem route='page3'>
-            <title>Page3</title>
-          </menuItem>
-        </menuBar>
-      </menuBarTemplate>
-    </document>
-  )));
-
-TVDML
-  .subscribe(TVDML.event.LAUNCH)
-  .pipe(payload => store.dispatch(launchApp(payload)));
-
-TVDML
-  .subscribe(TVDML.event.SUSPEND)
-  .pipe(() => store.dispatch(suspendApp()));
-
-TVDML
-  .subscribe(TVDML.event.RESUME)
-  .pipe(() => store.dispatch(resumeApp()));
-
-TVDML
-  .handleRoute('page1')
-  .pipe(TVDML.render(() => (
-    <RuntimeWrapper>
-      <Screen1 name='Developer' />
-    </RuntimeWrapper>
-  )));
-
-
-TVDML
-  .handleRoute('page2')
-  .pipe(TVDML.render(() => (
-    <RuntimeWrapper>
-      <Screen2 />
-    </RuntimeWrapper>
-  )));
-
-TVDML
-  .handleRoute('page3')
-  .pipe(TVDML.render(() => (
-    <RuntimeWrapper>
-      <Screen3 />
-    </RuntimeWrapper>
+    <DemoPlayer />
   )));

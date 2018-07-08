@@ -33,16 +33,6 @@ const rules = [
       },
     },
   },
-  {
-    test: /\.(png|jpe?g)$/i,
-    use: {
-      loader: 'file-loader',
-      options: {
-        name: 'assets/[name].[hash].[ext]',
-        publicPath: '/',
-      },
-    },
-  },
 ];
 
 const stats = {
