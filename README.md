@@ -1,12 +1,4 @@
-# TVDML Application boilerplate
-
-Basic build configuration to begin building Apple TV apps using [TVDML](https://github.com/a-ignatov-parc/tvdml) library.
-
-## Demo app
-
-Here's a glimpse of what it looks like
-
-![Main Screen](screenshots/screenshot1.png)
+Small demo to reproduce video playback bug in tvOS 12 beta.
 
 ## Run demo app
 
@@ -35,23 +27,3 @@ npm run serve
 > Server will start at [localhost:9001](http://localhost:9001/)
 
 Next step is to open XCode project (`boilerplate.xcodeproj`) located in `xcode` folder and run project with "Play" button at the top left corner or hit <kbd>CMD</kbd> + <kbd>R</kbd>. This will open Apple TV simulator and you'll be able to play around with demo app.
-
-## Build project
-
-In addition to serve application from MemoryFS you can build your application located in `/src` folder:
-
-```bash
-npm run build
-```
-
-> Results will be placed in `/dist` folder.
-
-To build optimized and minified version use:
-
-```bash
-npm run dist
-```
-
-## Additional information
-
-Old build configuration based on `gulp.js` can be found in [`gulp` branch](https://github.com/a-ignatov-parc/tvdml-app-boilerplate/tree/gulp).
