@@ -37,10 +37,10 @@
   "dependencies": {
     "file-loader": "^1.1.11",
     "prop-types": "^15.6.2",
-    "react": "^16.4.1",
+    "react": "^16.5.2",
     "react-redux": "^5.0.7",
     "redux": "^3.7.2",
-    "tvdml": "^6.1.1"
+    "tvdml": "^6.2.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
