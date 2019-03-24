@@ -1,8 +1,4 @@
-import {
-  ACTIVE,
-  LOADING,
-  SUSPENDED,
-} from './app/states';
+import { ACTIVE, LOADING, SUSPENDED } from './app/states';
 
 export const LAUNCH = 'app/launch';
 export const RESUME = 'app/resume';

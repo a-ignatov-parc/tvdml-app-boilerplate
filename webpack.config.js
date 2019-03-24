@@ -1,7 +1,6 @@
 const path = require('path');
 
 const webpack = require('webpack');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 function resolveFromRoot(dir) {
   return path.resolve(__dirname, dir);
@@ -16,18 +15,15 @@ const isProd = env === PRODUCTION;
 
 const rules = [
   {
-    test: /\.js$/,
+    test: /\.(js|jsx)$/,
     exclude: /(node_modules|tvdml\/dist)/,
     use: {
       loader: 'babel-loader',
       options: {
-        presets: [
-          'react',
-        ],
+        presets: ['@babel/preset-react'],
         plugins: [
-          'transform-class-properties',
-          'transform-object-rest-spread',
-          'react-require',
+          '@babel/plugin-proposal-class-properties',
+          '@babel/plugin-proposal-object-rest-spread',
         ],
         cacheDirectory: true,
       },
@@ -57,28 +53,6 @@ const plugins = [
   }),
 ];
 
-if (isProd) {
-  plugins.push(...[
-    new webpack.optimize.ModuleConcatenationPlugin(),
-    new webpack.optimize.OccurrenceOrderPlugin(),
-    new UglifyJsPlugin({
-      uglifyOptions: {
-        compress: {
-          keep_fnames: true,
-          warnings: false,
-        },
-        output: {
-          comments: false,
-        },
-        mangle: {
-          keep_fnames: true,
-        },
-      },
-      sourceMap: true,
-    }),
-  ]);
-}
-
 module.exports = {
   entry: {
     application: resolveFromRoot('./src'),
@@ -86,8 +60,13 @@ module.exports = {
   output: {
     filename: '[name].js',
     path: resolveFromRoot('./dist'),
+    globalObject: 'this', // tvjs doesn't have window object
+  },
+  resolve: {
+    extensions: ['*', '.js', '.jsx'],
   },
   devtool: isProd ? 'source-map' : 'eval-source-map',
+  mode: isProd ? 'production' : 'development',
   module: { rules },
   plugins,
   stats,
