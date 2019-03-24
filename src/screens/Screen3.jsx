@@ -1,3 +1,6 @@
+/* global DataItem */
+
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import withBaseUrl from '../redux/withBaseUrl';
@@ -14,18 +17,14 @@ function Screen3({ baseUrl }) {
         <collectionList>
           <shelf>
             <prototypes>
-              <lockup prototype='tvshow'>
-                <img
-                  binding='@src:{url};'
-                  width='300'
-                  height='300'
-                />
-                <title binding='textContent:{title};' />
+              <lockup prototype="tvshow">
+                <img binding="@src:{url};" width="300" height="300" />
+                <title binding="textContent:{title};" />
               </lockup>
             </prototypes>
             <section
-              binding='items:{tvshows};'
-              onSelect={event => console.log(event.target.dataItem)}
+              binding="items:{tvshows};"
+              onSelect={event => console.info(event.target.dataItem)}
               dataItem={{
                 tvshows: tvshows.map((cover, i) => {
                   const item = new DataItem('tvshow', i);

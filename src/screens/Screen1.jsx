@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import { link } from '../utils';
@@ -19,7 +20,7 @@ function Screen1(props) {
         `}</style>
       </head>
       <alertTemplate>
-        <title class='title'>Hello {name}!</title>
+        <title class="title">Hello {name}!</title>
         <description>Nice to see you 😸</description>
         <button onSelect={link('page2')}>
           <text>🎉</text>
@@ -28,17 +29,15 @@ function Screen1(props) {
           <text>🍸</text>
         </button>
         <text>And a small counter for your pleasure!</text>
-        <text style={{ tvTextStyle: 'title2' }}>
-          {counter}
-        </text>
+        <text style={{ tvTextStyle: 'title2' }}>{counter}</text>
       </alertTemplate>
     </document>
   );
 }
 
 Screen1.propTypes = {
-  name: PropTypes.string.isRequired,
-  counter: PropTypes.number.isRequired,
+  name: PropTypes.string,
+  counter: PropTypes.number,
 };
 
 Screen1.defaultProps = {

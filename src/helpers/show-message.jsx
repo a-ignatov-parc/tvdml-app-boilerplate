@@ -1,7 +1,8 @@
+import React from 'react';
 import * as TVDML from 'tvdml';
 
 export function showMessagePipeline(message) {
-  return TVDML.renderModal(payload => (
+  return TVDML.renderModal(() => (
     <document>
       <alertTemplate>
         <title>{message}</title>

@@ -8,7 +8,4 @@ const mainReducer = combineReducers({
   counter: counterReducer,
 });
 
-export default createStore(
-  mainReducer,
-  applyMiddleware(counterMiddleware),
-);
+export default createStore(mainReducer, applyMiddleware(counterMiddleware));

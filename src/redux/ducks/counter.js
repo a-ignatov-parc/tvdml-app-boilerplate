@@ -1,8 +1,4 @@
-import {
-  LAUNCH,
-  RESUME,
-  SUSPEND,
-} from './app';
+import { LAUNCH, RESUME, SUSPEND } from './app';
 
 const INCREMENT = 'counter/increment';
 
@@ -23,12 +19,13 @@ export const counterMiddleware = store => next => action => {
       }, 1000);
       break;
     case SUSPEND:
-      timer && clearInterval(timer);
+      if (timer) clearInterval(timer);
       break;
+    default:
   }
 
   return result;
-}
+};
 
 export default function counterReducer(state = 0, action = {}) {
   switch (action.type) {

@@ -1,0 +1,17 @@
+{
+  "extends": ["airbnb", "prettier"],
+  "rules": {
+    "react/prop-types": ["off"],
+    "react/button-has-type": ["off"],
+    "react/style-prop-object": ["off"],
+    "react/no-unknown-property": ["off"],
+    "jsx-a11y/alt-text": ["off"],
+    "jsx-a11y/accessible-emoji": ["off"],
+    "no-console": ["error", {
+      "allow": ["info", "warn", "error"]
+    }],
+    "no-param-reassign": ["error", {
+      "props": false
+    }],
+  }
+}
